@@ -1,0 +1,49 @@
+# PID-Based EO Gimbal Angular Tracking Algorithm
+
+This project models the angular tracking behavior of an electro-optical gimbal using a closed-loop PID controller in MATLAB/Simulink.
+
+A time-varying target azimuth angle is used as the reference input, and the controller commands the gimbal to follow the target while minimizing angular tracking error.
+
+## Control Architecture
+
+Target Angle  
+→ Tracking Error  
+→ PID Controller  
+→ Torque Saturation  
+→ Gimbal Dynamics  
+→ Angular Feedback
+
+## Gimbal Model
+
+The simplified mechanical model is defined as:
+
+Jθ̈ + Bθ̇ = T
+
+Model parameters:
+
+- Moment of inertia: `J = 0.02 kg·m²`
+- Damping coefficient: `B = 0.08 N·m·s/rad`
+- Torque limit: `±1.5 N·m`
+
+Transfer function:
+
+G(s) = 1 / (0.02s² + 0.08s)
+
+## PID Control
+
+The PID controller minimizes the difference between the target angle and the actual gimbal angle.
+
+The simulation allows observation of:
+
+- Target Angle
+- Gimbal Angle
+- Angular Tracking Error
+- Control Torque
+
+## Target Scenario
+
+The target angle is generated using a combination of multiple sinusoidal components to create a continuously changing angular reference.
+
+This produces a more dynamic tracking scenario than a single-frequency reference signal.
+
+This model demonstrates basic closed-loop angular tracking behavior for an EO gimbal mechanism.
