@@ -1,0 +1,44 @@
+# Adaptive EO/IR Sensor Selection Algorithm
+
+This project implements an adaptive decision algorithm in MATLAB/Simulink for selecting between EO (visible-spectrum) and IR sensors based on environmental conditions and sensor health.
+
+The algorithm continuously calculates a performance score for each sensor and switches to the more suitable channel when required.
+
+## Inputs
+
+- Ambient illumination (lux)
+- Visibility
+- EO scene contrast
+- Thermal contrast (ΔT)
+- EO sensor health
+- IR sensor health
+- AUTO / MANUAL operating mode
+
+## Operating Modes
+
+### AUTO Mode
+The algorithm automatically selects the most suitable sensor according to the calculated EO and IR performance scores.
+
+### MANUAL Mode
+The operator can force either EO or IR selection. If the selected sensor becomes unavailable, the algorithm can fall back to the healthy sensor.
+
+## Main Features
+
+- EO and IR performance scoring
+- Automatic sensor selection
+- Hysteresis to prevent unnecessary switching
+- Transition confirmation time
+- Automatic sensor failover
+- Dual-sensor fault detection
+- Active sensor confidence calculation
+- Operational / degraded / fault status
+
+## Outputs
+
+- Active Sensor
+- EO Performance Score
+- IR Performance Score
+- Sensor Confidence
+- Payload Status
+
+This model demonstrates a simplified EO/IR sensor management algorithm for electro-optical payload applications.
