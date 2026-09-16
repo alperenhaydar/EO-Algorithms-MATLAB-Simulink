@@ -1,0 +1,52 @@
+# Kalman Filter Based EO Line-of-Sight Estimation
+
+This project implements a Kalman Filter for estimating the Line-of-Sight (LOS) angle and angular rate of a target from noisy electro-optical sensor measurements.
+
+The simulated EO sensor provides only angular measurements, while the Kalman Filter estimates both the target LOS angle and LOS angular rate.
+
+## State Vector
+
+The Kalman Filter estimates:
+
+x = [ LOS Angle
+      LOS Angular Rate ]
+
+## Input
+
+- Noisy EO angular measurement
+
+The simulated measurement contains:
+
+- Measurement noise
+- High-frequency disturbances
+- Short-duration measurement glitches
+
+## Kalman Filter Structure
+
+The algorithm performs:
+
+1. State Prediction
+2. Covariance Prediction
+3. Innovation Calculation
+4. Kalman Gain Calculation
+5. Measurement Update
+6. Covariance Update
+
+## Outputs
+
+- Estimated LOS Angle
+- Estimated LOS Angular Rate
+- Innovation
+- Kalman Gain
+
+## Performance Evaluation
+
+The following signals are compared during simulation:
+
+- True LOS Angle
+- Noisy Sensor Measurement
+- Kalman Estimated LOS Angle
+
+The measurement error and estimation error can also be compared to evaluate the filtering performance.
+
+This model demonstrates basic state estimation and sensor filtering techniques for EO tracking applications.
