@@ -1,0 +1,59 @@
+# Adaptive EO Field-of-View Management Algorithm
+
+This project implements an adaptive Field-of-View (FOV) management algorithm for an electro-optical camera using MATLAB/Simulink.
+
+The algorithm automatically switches between Wide FOV and Narrow FOV modes according to target range, tracking confidence, target pixel size, and target position inside the camera field of view.
+
+## FOV Modes
+
+### Wide FOV
+
+- Horizontal FOV: 30°
+- Provides wider scene coverage
+- Used for target acquisition and maintaining situational awareness
+
+### Narrow FOV
+
+- Horizontal FOV: 8°
+- Provides higher pixel density on the target
+- Used when target conditions are suitable for detailed observation
+
+## Wide → Narrow Transition
+
+The algorithm switches to Narrow FOV when:
+
+- Track confidence ≥ 0.72
+- Target size ≥ 3 pixels in Wide FOV
+- Target is inside the Narrow FOV
+- Conditions remain valid for 2 seconds
+
+## Narrow → Wide Transition
+
+The algorithm returns to Wide FOV when one of the following occurs:
+
+- Track confidence ≤ 0.50
+- Target pixel size becomes too small
+- Target leaves the Narrow FOV
+
+A confirmation delay is applied to prevent unnecessary mode switching.
+
+## Scenario Generator
+
+Different `scenarioID` values are used to generate irregular and repeatable target scenarios.
+
+The following parameters vary during simulation:
+
+- Target range
+- Track confidence
+- Target azimuth
+
+## Outputs
+
+- Active FOV Mode
+- Active Horizontal FOV
+- Pixels on Target
+- Wide FOV Pixel Count
+- Narrow FOV Pixel Count
+- Target In/Out of FOV
+
+This model demonstrates adaptive optical mode management for EO tracking applications.
